@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nike/Components/collection_advertisement_item.dart';
+import 'package:nike/Components/collection_advertisement_section.dart';
 import 'package:nike/Components/feature_button.dart';
+import 'package:nike/Components/shop_by_interests.dart';
+import 'package:nike/Components/shop_by_type_section.dart';
 import 'package:nike/Components/product_by_category_item.dart';
+import 'package:nike/Components/shop_by_category_section.dart';
 import 'package:nike/Data/fake_data.dart';
 import 'package:nike/Models/advertisement.dart';
 
@@ -77,53 +81,20 @@ class _ShopPageState extends State<ShopPage> {
             const Divider(),
 
           //  category section
-            Padding(
-              padding: const EdgeInsets.only(top: 25, bottom: 30, left: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Must- Haves, Best Sellers & More",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                    ),
-                  ),
-                  const SizedBox(height: 25,),
-                  SizedBox(
-                    height: 300,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: FakeData.specialCategories.length,
-                      itemBuilder: (context, index){
-                        Category category = FakeData.specialCategories.elementAt(index);
-                        return Padding(
-                          padding: EdgeInsets.only(right: 20),
-                          child: ProductByCategoryItem(category: category, onPressed: () {  },),
-                        );
-                      },
-                    ),
-                  )
-                ],
-              ),
-            ),
-
-          //  collections advertisements
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: FakeData.collectionAds.length,
-              itemBuilder: (context, index) {
-                Advertisement advertisement = FakeData.collectionAds.elementAt(index);
-                return Padding(
-                  padding: EdgeInsets.only(bottom: 10),
-                  child: CollectionAdvertisementItem(
-                    advertisement: advertisement,
-                    onPressed: () {},
-                  ),
-                );
-              },
-            ),
+            const ShopByCategorySection(),
+          //new arrivals section
+            const ShopByTypeSection(shoppingType: "New Arrivals",isHomepageShowed: false),
+            const SizedBox(height: 20),
+            const ShopByTypeSection(shoppingType: "Shop by Collection", isHomepageShowed: false),
+            const SizedBox(height: 40),
+            //  collections advertisements section
+            const CollectionAdvertisementSection(),
+            //shop by my interests section
+            const ShopByInterests(),
+            const SizedBox(height: 20),
+            // recommendation section
+            const ShopByTypeSection(shoppingType: "Recommend for You", isHomepageShowed: false),
+            const SizedBox(height: 80,)
           ],
         ),
       ),
