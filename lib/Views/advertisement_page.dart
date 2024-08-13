@@ -112,13 +112,17 @@ class AdvertisementPage extends StatelessWidget{
                     ],
                   ),
                   //comment list
-                  ListView.builder(
-                    itemCount: 4,
-                    itemBuilder: (context, index){
-                      Comment comment = advertisement.comments.elementAt(index);
-                      return CommentItem(comment: comment,);
-                    },
-                  )
+                  SizedBox(
+                    height:300,
+                    child: ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: advertisement.comments.take(3).length,
+                      itemBuilder: (context, index){
+                        Comment comment = advertisement.comments.elementAt(index);
+                        return CommentItem(comment: comment,);
+                      },
+                    ),
+                  ),
                 ],
               ),
             )

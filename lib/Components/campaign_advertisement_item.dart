@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:nike/Models/advertisement.dart';
 import 'package:nike/Views/advertisement_page.dart';
 
-class AdvertisementItem extends StatelessWidget {
+class CampaignAdvertisementItem extends StatelessWidget {
   Advertisement advertisement;
-  AdvertisementItem({super.key, required this.advertisement});
+  CampaignAdvertisementItem({super.key, required this.advertisement});
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -31,8 +31,8 @@ class AdvertisementItem extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: advertisement.imgList.first,
               fit: BoxFit.cover,
-              placeholder: (context, url) => CircularProgressIndicator(), // Placeholder while loading
-              errorWidget: (context, url, error) => Icon(Icons.error), // Error widget
+              placeholder: (context, url) => const CircularProgressIndicator(), // Placeholder while loading
+              errorWidget: (context, url, error) => const Icon(Icons.error), // Error widget
             ),
             Container(
               height: 4,

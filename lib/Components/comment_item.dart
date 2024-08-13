@@ -10,20 +10,41 @@ class CommentItem extends StatelessWidget{
     return SizedBox(
       height: 100,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: CachedNetworkImage(
-                  imageUrl: FakeData.avatarIllustration,
-                  fit: BoxFit.cover,
+              SizedBox(
+                height: 50,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: CachedNetworkImage(
+                    imageUrl: FakeData.avatarIllustration,
+                    fit: BoxFit.cover,
+                  ),
                 ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    comment.user.name,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                  const SizedBox(height: 5,),
+                  Text(
+                    comment.commentContent,
+                  ),
+                  Text(
+                    comment.timeAgo(),
+
+                  )
+                ],
               )
             ],
-          ),
-          Text(
-            comment.user.name
           ),
         ],
       ),

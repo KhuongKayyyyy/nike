@@ -14,6 +14,7 @@ class FakeData {
     "https://onecms-res.cloudinary.com/image/upload/s---IgjrKp3--/f_auto,q_auto/c_fill,g_auto,h_622,w_830/v1/tdy-migration/19778571_0.JPG?itok=G6JiAGuS",
     "https://i.pinimg.com/originals/6a/d4/d6/6ad4d6c69ca3cfe34e66caff1ecfb6de.jpg",
     "https://filestage.io/wp-content/uploads/2023/02/image-1.webp",
+    "https://c.files.bbci.co.uk/44CF/production/_117751671_satan-shoes1.jpg",
   ];
   static User systemUser = User(
     name: "Nguyen Dat Khuong",
@@ -42,6 +43,23 @@ class FakeData {
       name: "Tops & T-Shirts",
       imageURL: "https://product.hstatic.net/1000008082/product/511_19b5d3a27b354329aa0e9e9d0a1aec62.jpeg"
   );
+
+  static Category newArrivals = Category(
+      name: "Tops & T-Shirts",
+      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMne_HrHNXgPX9Eg5iquPq-aJ_ka06_Gg_zw&s"
+  );
+
+  static Category bestSellers = Category(
+      name: "Tops & T-Shirts",
+      imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRKleYKi14Dw9PhGnZOAW5ZhpEMcsBDHTpjQ&s"
+  );
+
+  static Category mustHaves = Category(
+      name: "Tops & T-Shirts",
+      imageURL: "https://image.adsoftheworld.com/h9jamkn2d6d8c3kgb2vb8ierfne3"
+  );
+
+  static List<Category> specialCategories = [mustHaves, newArrivals, bestSellers];
 
   //product
   static Product shoe1 = Product(
@@ -75,4 +93,8 @@ class FakeData {
 
 
   static Advertisement advertisement1 = Advertisement(name: "Soyeon's Dance Challenge 😎",adContent: "Hip hop dancer Soyeon Jang shows us an epic dance challenge in the latest Playlist episode. Soyeon dances three parts of the routine - first fast, then slow. Then she combines all the moves for an awesome dance party with her buddy, Disco Dancer. Kids will get inspired to dance along and make up a dance routine of their own.", imgList: imageAd, comments: commentList);
+
+  static Advertisement newAd = Advertisement(name: "New & Featured",adContent: "Hip hop dancer Soyeon Jang shows us an epic dance challenge in the latest Playlist episode. Soyeon dances three parts of the routine - first fast, then slow. Then she combines all the moves for an awesome dance party with her buddy, Disco Dancer. Kids will get inspired to dance along and make up a dance routine of their own.", imgList: imageAd, comments: commentList);
+
+  static List<Advertisement> collectionAds = [newAd, newAd, newAd];
 }
